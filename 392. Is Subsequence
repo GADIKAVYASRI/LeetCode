@@ -1,0 +1,39 @@
+//Method-1:
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        boolean bool=true;
+        int count=0;
+        int c=0;
+        for(int i=0;i<s.length();i++){
+            for(int j=c;j<t.length();j++){
+                if(s.charAt(i)==t.charAt(j)){
+                    count++;
+                    c=j+1;
+                    break;
+                }
+            }
+        }
+        if(count==s.length()){
+            bool=true;
+        }
+        else{
+            bool=false;
+        }
+        return bool;
+    }
+}
+//Method-2:
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        if (s.length() == 0) return true;
+        if (t.length() == 0) return false;
+        int letter = 0;
+        for (int i = 0; i < t.length(); i++) {
+            if (s.charAt(letter) == t.charAt(i)) {
+                letter++;
+                if (letter >= s.length()) return true;
+            }
+        }
+        return false;
+    }
+}
